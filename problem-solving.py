@@ -36,6 +36,8 @@ def main():
         
     for thread in threads:
         thread.start()
+
+     for thread in threads:
     
     print(f"Number of people created: {Person.people_count}")
     return
