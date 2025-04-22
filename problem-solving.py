@@ -14,7 +14,8 @@ class Person:
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
         self.last_name = last_name
-        self.age == age
+        # there was two "=", removed the extra.
+        self.age = age
         self.id = self.increase_count()
 
     # This method should not be modified.
@@ -29,7 +30,8 @@ class Person:
 def main():
     threads = []
     for p in people:
-        x = Person(p["first_name"], p["age"], p["last_name"])
+        #fixed ordering to match script
+        x = Person(p["first_name"], p["last_name"], p["age"])
         threads.append(threading.Thread(target=x.introduce))
         
     for thread in threads:
