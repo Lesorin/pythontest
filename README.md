@@ -3,20 +3,28 @@
 ## Basic knowledge questions
 
 - What is \_\_main\_\_.py used for?
+-** handing for testing, allows you to excute scripts and packages to be excuted directly.**
 
 - How to prevent python module code from executing when the module is imported?
+-** encapsalte the code with "if __name__ == "__main__""**
 
 - What's the name of method that represents a class constructor in Python?
+- **__init__ Method**
 
 - What options do you have when you need to insert value of a variable into string? Name at least three.
+- **Python f-strings, % operator, The Comma, The String Format Method**
 
 - How can you truly restrict access to a private method of a class in Python?
+- **use the prefix __ on the method name**
 
 - What Python feature would you use to add some functionalities to an existing function without interfering into its code?
+- **python decorator**
 
 - How is @staticmethod different from @classmethod?
+- a @staticmethod doesnt need a paramter, where as a @classmethod takes cls as the paramater. a class method can modify and access class state, well a static method cannot.
 
 - What is the advantage of using **with** keyword when reading/writing a file in Python?
+- it makes opening files and closing them down much more efficient. it can prevent  leaks.
 
 ## Problem solving
 
