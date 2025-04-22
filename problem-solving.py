@@ -10,11 +10,11 @@ people = [
 
 class Person:
     people_count = 0
+    lock = threading.Lock()  # ensures thread-safe increment
 
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
         self.last_name = last_name
-        # there was two "=", removed the extra.
         self.age = age
         self.id = self.increase_count()
 
@@ -23,24 +23,27 @@ class Person:
         time.sleep(1)
         print(f"Hello, my first name is {self.first_name} and I am {self.age} years old.")
 
-    def increase_count():
-        Person.people_count += 1
-        return Person.people_count
+    @classmethod
+    def increase_count(cls):
+        with cls.lock:
+            cls.people_count += 1
+            return cls.people_count
 
 def main():
     threads = []
     for p in people:
-        #fixed ordering to match script
-        x = Person(p["first_name"], p["last_name"], p["age"])
-        threads.append(threading.Thread(target=x.introduce))
-        
+        person = Person(p["first_name"], p["last_name"], p["age"])
+        thread = threading.Thread(target=person.introduce)
+        threads.append(thread)
+
     for thread in threads:
         thread.start()
 
-     for thread in threads:
-    
+    for thread in threads:
+        thread.join()  # wait for all threads to finish
+
+    # Now we print after all threads have joined
     print(f"Number of people created: {Person.people_count}")
-    return
-#i compared some scripts i knew of and main seemed to be wrong
+
 if __name__ == "__main__":
     main()
