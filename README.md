@@ -44,3 +44,51 @@ For this task you will need your personal account in AWS. Please create one if y
 
 Please create a new GitLab/GitHub repository, upload your lambda code in there and share link to the repo with us.
 Repository should also contain a README.md with URLs to your API GET & POST methods and explanation about how to use them (exact paths, example body for POST method).
+
+
+
+# User API (AWS REST API Gateway + Lambda + DynamoDB)
+
+## ✅ Endpoints
+
+### Create User (POST)
+**POST** `/users`  
+URL:  
+`https://9mo3mf1se6.execute-api.us-east-1.amazonaws.com/prod/users`
+
+**Request Body:**
+```json
+{
+  "first_name": "Jane",
+  "age": 29
+}
+Response:
+
+json
+Copy
+Edit
+{
+  "user_id": "uuid-xyz-123"
+}
+Get User by ID (GET)
+GET /users/{user_id}
+URL:
+'https://9mo3mf1se6.execute-api.us-east-1.amazonaws.com/prod/users/{user_id}'
+Response:
+
+json
+Copy
+Edit
+{
+  "user_id": "uuid-xyz-123",
+  "first_name": "Jane",
+  "age": 29
+}
+If user doesn't exist:
+
+json
+Copy
+Edit
+{
+  "error": "User not found"
+}
