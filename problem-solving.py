@@ -39,6 +39,6 @@ def main():
     
     print(f"Number of people created: {Person.people_count}")
     return
-
-if __name__ == "main":
+#i compared some scripts i knew of and main seemed to be wrong
+if __name__ == "__main__":
     main()
